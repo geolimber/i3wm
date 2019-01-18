@@ -1,0 +1,8 @@
+#!/bin/sh
+
+case $BLOCK_BUTTON in
+	1) notify-send "Consumidores de CPU:
+$(ps axch -o cmd,%cpu --sort=-%cpu | head)" ;;
+esac
+
+sensors | awk '/^temp1/ {print $2}'
