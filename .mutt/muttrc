@@ -1,0 +1,37 @@
+source "gpg -d ~/.mutt/passwords.gpg |"
+source "sl16"
+set realname = "Sergio Marchenko"
+set from = "geolimber@gmail.com"
+set use_from = yes
+set envelope_from = yes
+
+# Ensure TLS is enforced
+set ssl_starttls = yes
+set ssl_force_tls = yes
+
+# Protocol: smtp for TLS (587), smtps for SSL (465)
+set smtp_url = "smtp://geolimber@gmail.com@smtp.gmail.com:587/"
+set imap_user = "geolimber@gmail.com"
+set imap_keepalive = 900
+set folder = "imaps://imap.gmail.com:993"
+set spoolfile = "+INBOX"
+set record = "+[Gmail]/Sent Mail"
+set postponed = "+[Gmail]/Drafts"
+set header_cache = "~/.mutt/cache/headers"
+set message_cachedir = "~/.mutt/cache/bodies"
+set certificate_file = "~/.mutt/certificates"
+set move = no
+
+# Needed to get and display mail (imap-fetch-mail)
+set editor = "vim"
+set charset = "utf-8"
+set record = ""
+set date_format="%d %b %Y - %H:%M"
+set index_format="%4C %Z [%D] %-20.20L (%?l?%4l&%4c?) %s"
+
+auto_view text/html                                      # view html automatically
+alternative_order text/plain text/enriched text/html     # save html for last
+
+# Gmail aliases
+bind editor <space> noop
+macro index,pager y "<save-message>=[Gmail]/All Mail<enter><enter>" "Archive" # archive message
