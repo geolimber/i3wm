@@ -1,0 +1,4 @@
+
+#!/usr/bin/env bash
+# Script finds all *.mp4 video files in current folder and subfolders and converts it to mp3 using ffmpeg
+find . -type f -iname "*.mp4" -exec bash -c 'FILE="$1"; ffmpeg -i "${FILE}" -vn -ab 128k -ar 44100 -y "${FILE%.webm}.mp3";' _ '{}' \;
