@@ -1,5 +1,4 @@
 source "gpg -d ~/.mutt/passwords.gpg |"
-source "sl16"
 set realname = "Sergio Marchenko"
 set from = "geolimber@gmail.com"
 set use_from = yes
